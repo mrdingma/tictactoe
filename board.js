@@ -12,6 +12,10 @@ class Board {
     return this.board[row][col] === 0;
   }
 
+  setCurrentMove(winner) {
+    this.currentMove = winner.toUpperCase();
+  }
+
   resetBoard() {
     this.board = [
       [0, 0, 0],

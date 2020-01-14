@@ -19,8 +19,11 @@ window.onload = function () {
       gameBoard.toggleCurrentMove();
       // if winner
       if (gameBoard.hasWon()) {
-        alert(`Player ${gameBoard.hasWon().toUpperCase()} has won!`);
+        const winningPlayer = gameBoard.hasWon();
+        alert(`Player ${winningPlayer.toUpperCase()} has won!`);
+        addWin(winningPlayer);
         resetBoard($boardRows);
+        gameBoard.setCurrentMove(winningPlayer);
       }
       // if board full
       if (gameBoard.isBoardFull()) {

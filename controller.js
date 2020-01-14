@@ -1,6 +1,5 @@
-
 const gameBoard = new Board();
-
+const scoreBoard = new ScoreBoard();
 
 const resetBoard = ($boardRows) => {
   gameBoard.resetBoard();
@@ -11,4 +10,10 @@ const resetBoard = ($boardRows) => {
       $currentRowBtns[j].innerHTML = '';
     }
   }
+}
+
+const addWin = (player) => {
+  const $scoreBoard = document.getElementsByClassName(`${player}wins`)[0];
+  scoreBoard.addWin(player);
+  $scoreBoard.innerHTML = scoreBoard.tracker[player];
 }
