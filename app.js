@@ -20,12 +20,12 @@ window.onload = function () {
       // if winner
       if (gameBoard.hasWon()) {
         alert(`Player ${gameBoard.hasWon().toUpperCase()} has won!`);
-        resetBoard();
+        resetBoard($boardRows);
       }
       // if board full
       if (gameBoard.isBoardFull()) {
         alert('Draw!');
-        resetBoard();
+        resetBoard($boardRows);
       }
     } else {
       alert('You can\'t move there!');

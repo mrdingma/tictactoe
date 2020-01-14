@@ -13,9 +13,11 @@ body {
 }
 
 div button {
+  border-radius: 10px;
   background: #fff;
   border: 1px solid #999;
   float: left;
+  color: darkblue;
   font-size: 40px;
   font-weight: bold;
   line-height: 34px;
