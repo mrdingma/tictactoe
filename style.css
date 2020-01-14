@@ -1,9 +1,37 @@
-button {
-    color: white;
-    padding: 50px 50px;
-    margin: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  color: #B8E8FF;
+  margin-left: 100px;
+  background-image: url("https://media2.giphy.com/media/22kxQ12cxyEww/source.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.grid {
+  float: left;
+  opacity: .2;
+}
+
+div button {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 120px;
+  outline: none;
+}
+
+.title {
+  font-size: 50px;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
 }

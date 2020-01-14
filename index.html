@@ -2,31 +2,33 @@
 <html>
 
 <head>
-  <script src="node_modules/jquery/dist/jquery.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
-  <div>
+  <div class="title">
     Tic Tac Toe!
   </div>
+  <button class="reset">Reset Game</button>
   <div class="grid">
-    <div class="firstRow">
-      <button id="1"></button>
-      <button id="2"></button>
-      <button id="3"></button>
+    <div class="row">
+      <button id="e00"></button>
+      <button id="e01"></button>
+      <button id="e02"></button>
     </div>
-    <div class="secondRow">
-      <button id="1"></button>
-      <button id="2"></button>
-      <button id="3"></button>
+    <div class="row">
+      <button id="e10"></button>
+      <button id="e11"></button>
+      <button id="e12"></button>
     </div>
-    <div class="thirdRow">
-      <button id="1"></button>
-      <button id="2"></button>
-      <button id="3"></button>
+    <div class="row">
+      <button id="e20"></button>
+      <button id="e21"></button>
+      <button id="e22"></button>
     </div>
   </div>
+  <script src='board.js'></script>
+  <script src='controller.js'></script>
   <script src='app.js'></script>
 </body>
 

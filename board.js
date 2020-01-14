@@ -5,57 +5,86 @@ class Board {
       [0, 0, 0],
       [0, 0, 0]
     ];
-    this.currentMove = true;
-
+    this.currentMove = 'X';
   }
 
-  toggleX(row, col) {
-    this.board[row, col] = 'x';
+  isValidMove(row, col) {
+    return this.board[row][col] === 0;
   }
 
-  toggleO(row, col) {
-    this.board[row, col] = 'o';
+  resetBoard() {
+    this.board = [
+      [0, 0, 0],
+      [0, 0, 0],
+      [0, 0, 0]
+    ];
   }
 
-  horizWin(matrix) {
+  isBoardFull() {
+    return !this.board.flat().join('').includes('0');
+  }
+
+  toggleCurrentMove() {
+    this.currentMove === 'X' ? this.currentMove = 'O' : this.currentMove = 'X'
+  }
+
+  toggleBoard(row, col) {
+    this.board[row][col] = this.currentMove.toLowerCase();
+  }
+
+  hasWon() {
+    if (this.horizWin(this.board)) {
+      return this.horizWin(this.board);
+    }
+
+    if (this.verticalWin(this.board)) {
+      return this.verticalWin(this.board);
+    }
+
+    if (this.diagWin(this.board)) {
+      return this.diagWin(this.board);
+    }
+    return false;
+  }
+
+  horizWin(matrix = this.board) {
     for (let i = 0; i < matrix.length; i += 1) {
       const currentRow = matrix[i];
-
-      if (currentRow.join('').match(/x/gi).length === 3) {
-        return true;
+      if (currentRow.join('') === 'xxx') {
+        return 'x';
       }
 
-      if (currentRow.join('').match(/y/gi).length === 3) {
-        return true;
+      if (currentRow.join('') === 'ooo') {
+        return 'o';
       }
     }
     return false;
   }
 
-  verticalWin(matrix) {
-    // flip the matrix 90degree CW
+  verticalWin() {
+    // flip the this.board 90degree CW
     const flippedMatrix = [];
-    for (let i = 0; i < matrix.length; i += 1) {
-      flippedMatrix.push(matrix.map(row => row[i]))
+    for (let i = 0; i < this.board.length; i += 1) {
+      flippedMatrix.push(this.board.map(row => row[i]))
     }
     return this.horizWin(flippedMatrix);
   }
 
-  diagWin(matrix) {
-    if (matrix[0][0] === 'x' && matrix[1][1] === 'x' && matrix[2][2] === 'x') {
-      return true;
+  diagWin() {
+    if (this.board[0][0] === 'x' && this.board[1][1] === 'x' && this.board[2][2] === 'x') {
+      return 'x';
     }
 
-    if (matrix[0][0] === 'o' && matrix[1][1] === 'o' && matrix[2][2] === 'o') {
-      return true;
+    if (this.board[0][0] === 'o' && this.board[1][1] === 'o' && this.board[2][2] === 'o') {
+      return 'o';
     }
 
-    if (matrix[2][0] === 'x' && matrix[1][1] === 'x' && matrix[0][2] === 'x') {
-      return true;
+    if (this.board[2][0] === 'x' && this.board[1][1] === 'x' && this.board[0][2] === 'x') {
+      return 'x';
     }
 
-    if (matrix[2][0] === 'o' && matrix[1][1] === 'o' && matrix[0][2] === 'o') {
-      return true;
+    if (this.board[2][0] === 'o' && this.board[1][1] === 'o' && this.board[0][2] === 'o') {
+      return 'o';
     }
 
     return false;
